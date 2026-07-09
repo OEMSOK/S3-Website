@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ហាង សុខ ស៊ីណេត - ប្រព័ន្ធជំពាក់លុយ</title>
+
+  <!-- PWA Manifest & Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Moul&family=Siemreap&family=Kantumruy+Pro:ital,wght@0,300..700;1,300..700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-light">
+
+  <div class="app-container">
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="logo.jpg" alt="Logo" class="logo-img">
+        <span class="logo-text" data-i18n="app_title">ប្រព័ន្ធជំពាក់លុយ</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-view="dashboard">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+          </svg>
+          <span data-i18n="nav_dashboard">ផ្ទាំងគ្រប់គ្រង</span>
+        </button>
+        <button class="nav-item" data-view="debtors">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+          </svg>
+          <span data-i18n="nav_debtors">អ្នកជំពាក់</span>
+        </button>
+        <button class="nav-item" data-view="debts">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+          <span data-i18n="nav_debts">បញ្ជីជំពាក់</span>
+        </button>
+        <button class="nav-item" data-view="history">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 12h3.75M9 15h3.375M9 9h3.375M20.25 12a8.25 8.25 0 1 1-16.5 0 8.25 8.25 0 0 1 16.5 0Z" />
+          </svg>
+          <span data-i18n="nav_history">ប្រវត្តិសង</span>
+        </button>
+        <button class="nav-item" data-view="settings">
+          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.43l-1.003.828c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.43l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+          </svg>
+          <span data-i18n="nav_settings">ការកំណត់</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Header / Top Bar -->
+      <header class="header">
+        <div class="header-search-wrapper">
+          <div class="search-bar">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.637 10.636Z" />
+            </svg>
+            <input type="text" id="global-search" placeholder="ស្វែងរកឈ្មោះ ឬលេខទូរសព្ទ..."
+              data-i18n-placeholder="search_placeholder">
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <!-- Quick Add Button -->
+          <button class="btn btn-primary btn-icon btn-quick-add" id="btn-quick-add-debt">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            <span class="desktop-only" data-i18n="quick_add">បន្ថែមការជំពាក់</span>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button class="btn-theme" id="theme-toggle" aria-label="Toggle Theme">
+            <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+            </svg>
+            <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 3v2.25m0 13.5V21M4.22 4.22l1.58 1.58m12.42 12.42l1.58 1.58M3 12h2.25m13.5 0H21M6.02 17.98l-1.58 1.58M19.78 4.22l-1.58 1.58M12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z" />
+            </svg>
+          </button>
+
+          <!-- Language Selector -->
+          <button class="btn-lang" id="lang-toggle">
+            <span class="lang-text">EN</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- View Containers -->
+      <div class="content-body">
+
+        <!-- DASHBOARD VIEW -->
+        <section id="view-dashboard" class="app-view active">
+          <div class="view-header">
+            <h1 data-i18n="dashboard_title">របាយការណ៍សង្ខេប</h1>
+            <p data-i18n="dashboard_subtitle">ទិដ្ឋភាពទូទៅនៃបំណុលអតិថិជន និងការសងប្រាក់</p>
+          </div>
+
+          <!-- Quick Stats Cards Grid -->
+          <div class="stats-grid">
+            <div class="stat-card total-debt">
+              <div class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+              </div>
+              <div class="stat-details">
+                <span class="stat-label" data-i18n="stat_total_debt">ជំពាក់សរុប (Unpaid)</span>
+                <h3 class="stat-value text-indigo" id="stat-unpaid-usd">$0.00</h3>
+                <h3 class="stat-value text-indigo sub-value" id="stat-unpaid-khr">0 ៛</h3>
+              </div>
+            </div>
+
+            <div class="stat-card total-paid">
+              <div class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                </svg>
+              </div>
+              <div class="stat-details">
+                <span class="stat-label" data-i18n="stat_total_paid">សងរួចសរុប (Paid)</span>
+                <h3 class="stat-value text-emerald" id="stat-paid-usd">$0.00</h3>
+                <h3 class="stat-value text-emerald sub-value" id="stat-paid-khr">0 ៛</h3>
+              </div>
+            </div>
+
+            <div class="stat-card active-debtors">
+              <div class="stat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                </svg>
+              </div>
+              <div class="stat-details">
+                <span class="stat-label" data-i18n="stat_debtors_count">ចំនួនអ្នកជំពាក់សរុប</span>
+                <h3 class="stat-value text-amber" id="stat-debtors-count">0</h3>
+                <span class="stat-label sub-label" data-i18n="stat_active_debtors">នាក់កំពុងជំពាក់</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts and Analytics -->
+          <div class="dashboard-charts-grid">
+            <!-- Custom Dynamic SVG Chart Card -->
+            <div class="card chart-card">
+              <div class="card-header">
+                <h2 data-i18n="chart_title">របាយការណ៍បំណុលតាមខែ</h2>
+                <div class="chart-legend">
+                  <span class="legend-item"><span class="legend-color unpaid"></span><span
+                      data-i18n="legend_unpaid">មិនទាន់សង</span></span>
+                  <span class="legend-item"><span class="legend-color paid"></span><span
+                      data-i18n="legend_paid">សងរួច</span></span>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- SVG-based custom chart container -->
+                <div class="svg-chart-container" id="svg-chart-container">
+                  <!-- Generated dynamically in JavaScript -->
+                  <svg id="dashboard-svg-chart" viewBox="0 0 500 200" width="100%" height="100%"
+                    preserveAspectRatio="none">
+                    <!-- Placeholder grids/labels -->
+                  </svg>
+                  <div class="chart-labels-x" id="chart-labels-x"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Activities -->
+            <div class="card recent-activity-card">
+              <div class="card-header">
+                <h2 data-i18n="recent_activities">សកម្មភាពថ្មីៗ</h2>
+                <button class="btn btn-text" data-action="view-debts" data-i18n="view_all">មើលទាំងអស់</button>
+              </div>
+              <div class="card-body recent-list" id="recent-activity-list">
+                <!-- Loaded dynamically -->
+                <div class="empty-state">
+                  <span data-i18n="no_activities">មិនទាន់មានសកម្មភាពនៅឡើយទេ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DEBTORS VIEW -->
+        <section id="view-debtors" class="app-view">
+          <div class="view-header-flex">
+            <div class="view-header">
+              <h1 data-i18n="debtors_title">បញ្ជីអ្នកជំពាក់លុយ</h1>
+              <p data-i18n="debtors_subtitle">គ្រប់គ្រងព័ត៌មានអតិថិជន និងមើលព័ត៌មានលម្អិតបំណុល</p>
+            </div>
+            <button class="btn btn-primary" id="btn-add-debtor">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235A8.986 8.986 0 0 1 12 12.75c2.792 0 5.34 1.272 7.039 3.285m-14.078 0A8.982 8.982 0 0 0 3 19.235Z" />
+              </svg>
+              <span data-i18n="add_debtor_btn">បន្ថែមអ្នកជំពាក់ថ្មី</span>
+            </button>
+          </div>
+
+          <div class="card filter-wrapper">
+            <div class="search-bar border-search">
+              <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.637 10.636Z" />
+              </svg>
+              <input type="text" id="debtors-search" placeholder="ស្វែងរកតាមឈ្មោះ ឬលេខទូរសព្ទ..."
+                data-i18n-placeholder="search_debtors_placeholder">
+            </div>
+          </div>
+
+          <!-- Debtors Grid -->
+          <div class="debtors-grid" id="debtors-list-container">
+            <!-- Loaded dynamically in JavaScript -->
+          </div>
+        </section>
+
+        <!-- DEBTS VIEW -->
+        <section id="view-debts" class="app-view">
+          <div class="view-header-flex">
+            <div class="view-header">
+              <h1 data-i18n="debts_title">បញ្ជីការជំពាក់ប្រាក់សរុប</h1>
+              <p data-i18n="debts_subtitle">បញ្ជីលម្អិតនៃអីវ៉ាន់ដែលជំពាក់ និងការទូទាត់ប្រាក់</p>
+            </div>
+            <div class="view-header-actions" style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+              <button class="btn btn-outline" id="btn-print-all-unpaid">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M6.72 13.821V21h10.56v-7.179m-12 0A2.25 2.25 0 0 1 3 11.58V8.71a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 8.71v2.87a2.25 2.25 0 0 1-2.28 2.241m-12 0h12m-12 0v-1.8c0-.621.504-1.125 1.125-1.125h9.75c.621 0 1.125.504 1.125 1.125v1.8M8.25 6.75h7.5M12 9h.008v.008H12V9Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+                <span data-i18n="btn_print_all_unpaid">ព្រីនរបាយការណ៍មិនទាន់សង</span>
+              </button>
+              <button class="btn btn-primary" id="btn-add-debt-direct">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                  stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                <span data-i18n="add_debt_btn">កត់ត្រាការជំពាក់ថ្មី</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="card table-filters">
+            <div class="tabs">
+              <button class="tab-item active" data-filter="all" data-i18n="filter_all">ទាំងអស់</button>
+              <button class="tab-item" data-filter="unpaid" data-i18n="filter_unpaid">មិនទាន់សង</button>
+              <button class="tab-item" data-filter="partial" data-i18n="filter_partial">សងខ្លះ</button>
+              <button class="tab-item" data-filter="paid" data-i18n="filter_paid">សងរួច</button>
+            </div>
+
+            <div class="table-search">
+              <div class="search-bar minimal-search">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.637 10.636Z" />
+                </svg>
+                <input type="text" id="debts-search" placeholder="ស្វែងរកតាមឈ្មោះ មុខទំនិញ..."
+                  data-i18n-placeholder="search_debts_placeholder">
+              </div>
+            </div>
+          </div>
+
+          <!-- Debts List Table / Responsive Cards -->
+          <div class="table-responsive card">
+            <table class="data-table" id="debts-table">
+              <thead>
+                <tr>
+                  <th data-i18n="col_debtor">អ្នកជំពាក់</th>
+                  <th data-i18n="col_description">ឈ្មោះទំនិញ / ពណ៌នា</th>
+                  <th data-i18n="col_amount">ចំនួនទឹកប្រាក់</th>
+                  <th data-i18n="col_remaining">នៅខ្វះ</th>
+                  <th data-i18n="col_date">កាលបរិច្ឆេទ</th>
+                  <th data-i18n="col_due_date">ថ្ងៃសង</th>
+                  <th data-i18n="col_status">ស្ថានភាព</th>
+                  <th data-i18n="col_actions" class="text-right">សកម្មភាព</th>
+                </tr>
+              </thead>
+              <tbody id="debts-list-tbody">
+                <!-- Dynamically loaded -->
+              </tbody>
+            </table>
+
+            <div class="mobile-list-view" id="debts-mobile-list">
+              <!-- Dynamically loaded on mobile -->
+            </div>
+
+            <div class="table-empty-state" id="debts-empty-state" style="display: none;">
+              <span data-i18n="no_debts_found">រកមិនឃើញទិន្នន័យជំពាក់លុយទេ</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- HISTORY VIEW -->
+        <section id="view-history" class="app-view">
+          <div class="view-header">
+            <h1 data-i18n="history_title">ប្រវត្តិសងប្រាក់សរុប</h1>
+            <p data-i18n="history_subtitle">បញ្ជីប្រវត្តិសងលុយចាស់ៗ របស់អតិថិជនទាំងអស់</p>
+          </div>
+
+          <div class="card table-filters">
+            <div class="table-search full-width">
+              <div class="search-bar minimal-search">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.637 10.636Z" />
+                </svg>
+                <input type="text" id="payments-search" placeholder="ស្វែងរកតាមឈ្មោះអ្នកជំពាក់..."
+                  data-i18n-placeholder="search_history_placeholder">
+              </div>
+            </div>
+          </div>
+
+          <!-- Payments List Table -->
+          <div class="table-responsive card">
+            <table class="data-table" id="payments-table">
+              <thead>
+                <tr>
+                  <th data-i18n="col_debtor">អ្នកជំពាក់</th>
+                  <th data-i18n="col_debt_item">ជំពាក់លើមុខទំនិញ</th>
+                  <th data-i18n="col_amount_paid">ចំនួនប្រាក់បានសង</th>
+                  <th data-i18n="col_date_paid">ថ្ងៃសងលុយ</th>
+                  <th data-i18n="col_payment_method">វិធីសាស្ត្រទូទាត់</th>
+                  <th data-i18n="col_notes">ពេលវេលា</th>
+                  <th data-i18n="col_actions" class="text-right">សកម្មភាព</th>
+                </tr>
+              </thead>
+              <tbody id="payments-list-tbody">
+                <!-- Dynamically loaded -->
+              </tbody>
+            </table>
+
+            <div class="mobile-list-view" id="payments-mobile-list">
+              <!-- Dynamically loaded on mobile -->
+            </div>
+
+            <div class="table-empty-state" id="payments-empty-state" style="display: none;">
+              <span data-i18n="no_payments_found">មិនទាន់មានការសងប្រាក់នៅឡើយទេ</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SETTINGS VIEW -->
+        <section id="view-settings" class="app-view">
+          <div class="view-header">
+            <h1 data-i18n="settings_title">ការកំណត់ប្រព័ន្ធ</h1>
+            <p data-i18n="settings_subtitle">កំណត់ចំណូលចិត្ត និងគ្រប់គ្រងទិន្នន័យសុវត្ថិភាពរបស់អ្នក</p>
+          </div>
+
+          <div class="settings-grid">
+            <!-- General Settings -->
+            <div class="card settings-card col-span-2">
+              <div class="settings-card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" class="w-6 h-6 text-indigo-500">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.43l-1.003.828c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.43l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.645-.869L9.594 3.94ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                </svg>
+                <h3 data-i18n="settings_general_title">ការកំណត់ទូទៅ (General Settings)</h3>
+              </div>
+              <div class="settings-card-body general-settings-grid">
+                <!-- Language Box -->
+                <div class="setting-sub-group">
+                  <label
+                    style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--text-secondary);"
+                    data-i18n="settings_lang_title">ភាសាប្រព័ន្ធ (Language)</label>
+                  <div class="toggle-group-buttons">
+                    <button class="btn btn-outline lang-btn-select active" data-lang="km">ខ្មែរ (Khmer)</button>
+                    <button class="btn btn-outline lang-btn-select" data-lang="en">English</button>
+                  </div>
+                </div>
+                <!-- Theme Box -->
+                <div class="setting-sub-group">
+                  <label
+                    style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--text-secondary);"
+                    data-i18n="settings_theme_title">របៀបបង្ហាញ (Theme Mode)</label>
+                  <div class="toggle-group-buttons">
+                    <button class="btn btn-outline theme-btn-select active" data-theme="light"
+                      data-i18n="theme_light">ពន្លឺ</button>
+                    <button class="btn btn-outline theme-btn-select" data-theme="dark"
+                      data-i18n="theme_dark">ងងឹត</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- System Account Settings -->
+            <div class="card settings-card col-span-2">
+              <div class="settings-card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" class="w-6 h-6 text-indigo-500">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+                <h3 data-i18n="settings_auth_title">កំណត់គណនីគ្រប់គ្រងប្រព័ន្ធ (Account Security)</h3>
+              </div>
+              <div class="settings-card-body">
+                <form id="form-change-auth" class="form-change-auth">
+                  <div class="form-group">
+                    <label for="change-username" data-i18n="lbl_new_username">ឈ្មោះអ្នកប្រើប្រាស់ថ្មី (New
+                      Username)</label>
+                    <input type="text" id="change-username" placeholder="វាយ Username ថ្មី..." required>
+                  </div>
+                  <div class="form-group">
+                    <label for="change-password" data-i18n="lbl_new_password">លេខកូដសម្ងាត់ថ្មី (New Password)</label>
+                    <input type="password" id="change-password" placeholder="វាយ Password ថ្មី..." required>
+                  </div>
+                  <div class="form-group col-span-2"
+                    style="grid-column: 1 / -1; display: flex; justify-content: flex-end; margin-top: 8px; gap: 12px; align-items: center;">
+                    <span id="change-auth-msg" style="font-size: 0.85rem; font-weight: 500;"></span>
+                    <button type="submit" class="btn btn-primary"
+                      data-i18n="btn_update_account">រក្សាទុកការផ្លាស់ប្តូរ</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Cloud Sync Settings -->
+            <div class="card settings-card col-span-2">
+              <div class="settings-card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" class="w-6 h-6 text-indigo-500">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                </svg>
+                <h3 data-i18n="settings_sync_title">ភ្ជាប់ទិន្នន័យទៅកាន់ Cloud (Cloud Sync)</h3>
+              </div>
+              <div class="settings-card-body">
+                <div class="sync-status-wrapper" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary);">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span id="sync-status-dot" style="width: 10px; height: 10px; border-radius: 50%; background-color: #94a3b8; display: inline-block;"></span>
+                    <span id="sync-status-text" style="font-weight: 600; font-size: 0.9rem; color: var(--text-secondary);" data-i18n="sync_status_disabled">មិនទាន់ភ្ជាប់ (Disconnected)</span>
+                  </div>
+                  <button type="button" class="btn btn-outline btn-sm" id="btn-toggle-sync" style="padding: 4px 12px; font-size: 0.8rem;" data-i18n="btn_sync_enable">បើកដំណើរការ (Enable)</button>
+                </div>
+                
+                <form id="form-sync-config" class="form-sync-config" style="display: none; flex-direction: column; gap: 12px;">
+                  <div class="form-group">
+                    <label for="sync-json-config" data-i18n="lbl_sync_json_config">បិទភ្ជាប់ Firebase Configuration (JSON) *</label>
+                    <textarea id="sync-json-config" placeholder='ចម្លងកូដ Firebase config JSON មកដាក់ទីនេះ...&#10;ឧទាហរណ៍៖&#10;{&#10;  "apiKey": "AIzaSy...",&#10;  "databaseURL": "https://...",&#10;  "projectId": "...",&#10;  ...&#10;}' style="width: 100%; height: 120px; font-family: monospace; font-size: 0.8rem; padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--input-bg); color: var(--text-primary); resize: vertical;" required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="sync-shop-id" data-i18n="lbl_sync_shop_id">លេខសម្គាល់ហាង / Sync Path (Shop ID)</label>
+                    <input type="text" id="sync-shop-id" placeholder="sok_sinet_shop" value="sok_sinet_shop" required>
+                  </div>
+                  <div style="display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap;">
+                    <button type="button" class="btn btn-outline" id="btn-push-to-cloud" style="flex: 1; min-width: 150px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                      </svg>
+                      <span data-i18n="btn_push_cloud">បញ្ជូនទិន្នន័យទៅ Cloud</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="btn-save-sync" style="flex: 1; min-width: 150px;" data-i18n="btn_save_connect">រក្សាទុក & ភ្ជាប់</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Backup & Restore -->
+            <div class="card settings-card col-span-2">
+              <div class="settings-card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" class="w-6 h-6 text-indigo-500">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0v3.75" />
+                </svg>
+                <h3 data-i18n="settings_data_title">ការគ្រប់គ្រង និងថែទាំទិន្នន័យ (Database)</h3>
+              </div>
+              <div class="settings-card-body database-actions">
+                <p class="db-note" data-i18n="db_warning_note">
+                  ទិន្នន័យត្រូវបានរក្សាទុកតែលើកុំព្យូទ័រ/ទូរសព្ទរបស់អ្នកប៉ុណ្ណោះ។ ដើម្បីការពារការបាត់បង់ទិន្នន័យពេលលុប
+                  Cache កម្មវិធី សូមធ្វើការទាញយកទិន្នន័យរក្សាទុក (Backup) ឱ្យបានទៀងទាត់។</p>
+                <div class="db-buttons-grid">
+                  <button class="btn btn-outline" id="btn-export-db">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                      stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    <span data-i18n="btn_backup">ទាញយកទិន្នន័យ (Backup JSON)</span>
+                  </button>
+
+                  <button class="btn btn-outline position-relative" id="btn-import-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                      stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+                    </svg>
+                    <span data-i18n="btn_restore">បញ្ចូលទិន្នន័យឡើងវិញ (Restore JSON)</span>
+                    <input type="file" id="db-import-file" accept=".json" style="display: none;">
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logout Section -->
+            <div class="card settings-card col-span-2">
+              <div class="settings-card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                  stroke="currentColor" class="w-6 h-6 text-danger" style="color: var(--danger);">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                </svg>
+                <h3 data-i18n="settings_logout_title" style="color: var(--danger);">ចាកចេញពីប្រព័ន្ធ (Log Out)</h3>
+              </div>
+              <div class="settings-card-body logout-actions">
+                <p class="logout-note" data-i18n="logout_note"
+                  style="margin-bottom: 16px; font-size: 0.9rem; color: var(--text-secondary);">សូមចាកចេញពីប្រព័ន្ធ
+                  នៅពេលដែលអ្នកឈប់ប្រើប្រាស់ ដើម្បីការពារសុវត្ថិភាពទិន្នន័យរបស់អ្នក។</p>
+                <button type="button" class="btn btn-danger" id="btn-logout-settings">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                  </svg>
+                  <span data-i18n="btn_logout">ចាកចេញពីប្រព័ន្ធ</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+      <button class="mobile-nav-item active" data-view="dashboard">
+        <svg class="mobile-nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </svg>
+        <span data-i18n="mobile_nav_dashboard">ផ្ទះ</span>
+      </button>
+      <button class="mobile-nav-item" data-view="debtors">
+        <svg class="mobile-nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+        </svg>
+        <span data-i18n="mobile_nav_debtors">អ្នកជំពាក់</span>
+      </button>
+
+      <!-- Floating Action Button in Middle -->
+      <div class="fab-wrapper">
+        <button class="fab-btn" id="fab-add-trigger" aria-label="Quick Add Debt">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </button>
+      </div>
+
+      <button class="mobile-nav-item" data-view="debts">
+        <svg class="mobile-nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <span data-i18n="mobile_nav_debts">ជំពាក់</span>
+      </button>
+      <button class="mobile-nav-item" data-view="settings">
+        <svg class="mobile-nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.43l-1.003.828c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.43l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        </svg>
+        <span data-i18n="mobile_nav_settings">កំណត់</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- MODAL: ADD DEBTOR -->
+  <div class="modal-overlay" id="modal-debtor">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="modal-debtor-title" data-i18n="modal_add_debtor_title">បន្ថែមអ្នកជំពាក់ថ្មី</h2>
+        <button class="btn-close-modal" aria-label="Close Modal">&times;</button>
+      </div>
+      <form id="form-debtor">
+        <input type="hidden" id="debtor-form-id">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="debtor-name" data-i18n="lbl_debtor_name">ឈ្មោះអ្នកជំពាក់ *</label>
+            <input type="text" id="debtor-name" required placeholder="ឧ. ឈុន ស្រីឡែន"
+              data-i18n-placeholder="ph_debtor_name">
+          </div>
+          <div class="form-group">
+            <label for="debtor-phone" data-i18n="lbl_debtor_phone">លេខទូរសព្ទ</label>
+            <input type="tel" id="debtor-phone" placeholder="ឧ. 098765432" data-i18n-placeholder="ph_debtor_phone">
+          </div>
+          <div class="form-group">
+            <label for="debtor-address" data-i18n="lbl_debtor_address">អាសយដ្ឋាន (ភូមិ) *</label>
+            <select id="debtor-address" required>
+              <option value="" disabled selected data-i18n="select_village_opt">-- ជ្រើសរើសភូមិ --</option>
+              <option value="ដូនណូយ">ដូនណូយ</option>
+              <option value="ព្រៃម្នាស់">ព្រៃម្នាស់</option>
+              <option value="ស្វាយ">ស្វាយ</option>
+              <option value="សំឡី">សំឡី</option>
+              <option value="ត្នោត">ត្នោត</option>
+              <option value="ត្រោក">ត្រោក</option>
+              <option value="ចន្ទ្រា">ចន្ទ្រា</option>
+              <option value="ច្រេស">ច្រេស</option>
+              <option value="ខ្សែត្រ">ខ្សែត្រ</option>
+              <option value="ស្វាយរៀង">ស្វាយរៀង</option>
+              <option value="ព្រៃរបឺស">ព្រៃរបឺស</option>
+              <option value="ពោធិ៍ម្អម">ពោធិ៍ម្អម</option>
+              <option value="ផ្សេងៗ">ផ្សេងៗ</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline btn-close-modal-btn" data-i18n="btn_cancel">បោះបង់</button>
+          <button type="submit" class="btn btn-primary" data-i18n="btn_save">រក្សាទុក</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD/EDIT DEBT -->
+  <div class="modal-overlay" id="modal-debt">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <h2 id="modal-debt-title" data-i18n="modal_add_debt_title">កត់ត្រាការជំពាក់លុយ</h2>
+        <button class="btn-close-modal" aria-label="Close Modal">&times;</button>
+      </div>
+      <form id="form-debt">
+        <input type="hidden" id="debt-form-id">
+        <div class="modal-body">
+
+          <!-- Box 1 & 1.5: Debtor Name & Phone Row -->
+          <div class="form-row">
+            <div class="form-group col-6 position-relative">
+              <label for="debt-debtor-name" data-i18n="lbl_debtor_name">ឈ្មោះអ្នកជំពាក់លុយ *</label>
+              <input type="text" id="debt-debtor-name" required placeholder="វាយឈ្មោះអ្នកជំពាក់..."
+                data-i18n-placeholder="ph_debtor_name" autocomplete="off">
+              <div id="debt-debtor-suggestions" class="suggestions-box"></div>
+            </div>
+            <div class="form-group col-6">
+              <label for="debt-debtor-phone" data-i18n="lbl_debtor_phone">លេខទូរសព្ទ</label>
+              <input type="tel" id="debt-debtor-phone" placeholder="វាយលេខទូរសព្ទ..."
+                data-i18n-placeholder="ph_debtor_phone">
+            </div>
+          </div>
+
+          <!-- Box 2, 3, 4: Multi-Item Table (3 Rows) -->
+          <div class="form-group">
+            <label style="margin-bottom: 12px; font-weight: 700;" data-i18n="lbl_items_list">បញ្ជីទំនិញជំពាក់ (កំណត់បាន
+              ៣ជួរ) *</label>
+
+            <div class="debt-items-grid-header">
+              <div class="hdr-col-item" data-i18n="col_item_name">ប្រភេទអីវ៉ាន់ដែលជំពាក់</div>
+              <div class="hdr-col-price" data-i18n="col_unit_price">តម្លៃរាយ (រៀល)</div>
+              <div class="hdr-col-qty" data-i18n="col_qty">ចំនួន</div>
+            </div>
+
+            <div class="debt-items-list-container">
+              <!-- Row 1 -->
+              <div class="debt-item-row" data-row="1">
+                <div class="col-item-select">
+                  <select class="item-select">
+                    <option value="" disabled selected data-i18n="select_item_opt">-- ជ្រើសរើសប្រភេទអីវ៉ាន់ --</option>
+                    <option value="ខោទឹកនោម">ខោទឹកនោម</option>
+                    <option value="ទឹកដោះគោ">ទឹកដោះគោ</option>
+                    <option value="សាច់ជ្រូក">សាច់ជ្រូក</option>
+                    <option value="ចំណីរជ្រូក">ចំណីរជ្រូក</option>
+                    <option value="Other" data-i18n="method_other">ផ្សេងៗ</option>
+                  </select>
+                  <input type="text" class="item-custom-text" placeholder="វាយបញ្ចូលមុខទំនិញ..."
+                    data-i18n-placeholder="ph_custom_item" style="display: none; margin-top: 6px;">
+                </div>
+                <div class="col-item-price">
+                  <input type="number" class="item-price" placeholder="៛" min="0">
+                </div>
+                <div class="col-item-qty">
+                  <input type="number" class="item-qty" placeholder="1" min="1" value="1">
+                </div>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="debt-item-row" data-row="2">
+                <div class="col-item-select">
+                  <select class="item-select">
+                    <option value="" selected data-i18n="select_item_opt_empty">-- (ទទេ) --</option>
+                    <option value="ខោទឹកនោម">ខោទឹកនោម</option>
+                    <option value="ទឹកដោះគោ">ទឹកដោះគោ</option>
+                    <option value="សាច់ជ្រូក">សាច់ជ្រូក</option>
+                    <option value="ចំណីរជ្រូក">ចំណីរជ្រូក</option>
+                    <option value="Other" data-i18n="method_other">ផ្សេងៗ</option>
+                  </select>
+                  <input type="text" class="item-custom-text" placeholder="វាយបញ្ចូលមុខទំនិញ..."
+                    data-i18n-placeholder="ph_custom_item" style="display: none; margin-top: 6px;">
+                </div>
+                <div class="col-item-price">
+                  <input type="number" class="item-price" placeholder="៛" min="0">
+                </div>
+                <div class="col-item-qty">
+                  <input type="number" class="item-qty" placeholder="1" min="1">
+                </div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="debt-item-row" data-row="3">
+                <div class="col-item-select">
+                  <select class="item-select">
+                    <option value="" selected data-i18n="select_item_opt_empty">-- (ទទេ) --</option>
+                    <option value="ខោទឹកនោម">ខោទឹកនោម</option>
+                    <option value="ទឹកដោះគោ">ទឹកដោះគោ</option>
+                    <option value="សាច់ជ្រូក">សាច់ជ្រូក</option>
+                    <option value="ចំណីរជ្រូក">ចំណីរជ្រូក</option>
+                    <option value="Other" data-i18n="method_other">ផ្សេងៗ</option>
+                  </select>
+                  <input type="text" class="item-custom-text" placeholder="វាយបញ្ចូលមុខទំនិញ..."
+                    data-i18n-placeholder="ph_custom_item" style="display: none; margin-top: 6px;">
+                </div>
+                <div class="col-item-price">
+                  <input type="number" class="item-price" placeholder="៛" min="0">
+                </div>
+                <div class="col-item-qty">
+                  <input type="number" class="item-qty" placeholder="1" min="1">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Box 5: Address (Village) dropdown selection -->
+          <div class="form-group">
+            <label for="debt-village" data-i18n="lbl_village_address">អាសយដ្ឋាន (ភូមិ) *</label>
+            <select id="debt-village" required>
+              <option value="" disabled selected data-i18n="select_village_opt">-- ជ្រើសរើសភូមិ --</option>
+              <option value="ដូនណូយ">ដូនណូយ</option>
+              <option value="ព្រៃម្នាស់">ព្រៃម្នាស់</option>
+              <option value="ស្វាយ">ស្វាយ</option>
+              <option value="សំឡី">សំឡី</option>
+              <option value="ត្នោត">ត្នោត</option>
+              <option value="ត្រោក">ត្រោក</option>
+              <option value="ចន្ទ្រា">ចន្ទ្រា</option>
+              <option value="ច្រេស">ច្រេស</option>
+              <option value="ខ្សែត្រ">ខ្សែត្រ</option>
+              <option value="ស្វាយរៀង">ស្វាយរៀង</option>
+              <option value="ព្រៃរបឺស">ព្រៃរបឺស</option>
+              <option value="ពោធិ៍ម្អម">ពោធិ៍ម្អម</option>
+              <option value="ផ្សេងៗ">ផ្សេងៗ</option>
+            </select>
+          </div>
+
+          <!-- Box 6: Calculated Total Debt in KHR -->
+          <div class="form-group">
+            <label for="debt-total-amount" data-i18n="lbl_total_khr">សរុបចំនួនទឹកប្រាក់ជំពាក់ (រៀល) *</label>
+            <input type="text" id="debt-total-amount" readonly class="input-readonly font-numbers" value="0 ៛"
+              style="font-weight: 700; font-size: 1.2rem; color: var(--danger);">
+          </div>
+
+          <!-- Box 7 & Box 8: Dates -->
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="debt-date" data-i18n="lbl_debt_date">កាលបរិច្ឆេទជំពាក់ *</label>
+              <input type="date" id="debt-date" required>
+            </div>
+            <div class="form-group col-6">
+              <label for="debt-due-date" data-i18n="lbl_due_date">ថ្ងៃកំណត់សង</label>
+              <input type="date" id="debt-due-date">
+            </div>
+          </div>
+
+          <!-- Notice message at bottom -->
+          <div class="form-notice">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+            </svg>
+            <p><strong>សម្គាល់៖</strong> អតិថិជនទាំងអស់ត្រូវមកទូទាត់សំណងជារៀងរាល់ថ្ងៃក្នុងរយៈពេល១ខែ។</p>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline btn-close-modal-btn" data-i18n="btn_cancel">បោះបង់</button>
+          <button type="submit" class="btn btn-primary" data-i18n="btn_save">រក្សាទុក</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: PAY DEBT -->
+  <div class="modal-overlay" id="modal-payment">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 data-i18n="modal_payment_title">កត់ត្រាការសងប្រាក់</h2>
+        <button class="btn-close-modal" aria-label="Close Modal">&times;</button>
+      </div>
+      <form id="form-payment">
+        <input type="hidden" id="payment-debt-id">
+        <input type="hidden" id="payment-debtor-id">
+        <div class="modal-body">
+          <div class="payment-info-box">
+            <p><strong data-i18n="lbl_debtor_name_short">អ្នកជំពាក់៖</strong> <span id="payment-info-name">...</span>
+            </p>
+            <p><strong data-i18n="lbl_debt_item_short">មុខទំនិញ៖</strong> <span id="payment-info-item">...</span></p>
+            <p><strong data-i18n="lbl_remaining_debt">ប្រាក់នៅខ្វះសរុប៖</strong> <span id="payment-info-remaining"
+                class="text-danger">...</span></p>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="payment-amount" data-i18n="lbl_payment_amount">ចំនួនទឹកប្រាក់សង *</label>
+              <input type="number" step="any" id="payment-amount" required placeholder="0.00">
+            </div>
+            <div class="form-group col-6">
+              <label for="payment-currency" data-i18n="lbl_currency">រូបិយប័ណ្ណ</label>
+              <input type="text" id="payment-currency" readonly class="input-readonly">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="payment-date" data-i18n="lbl_payment_date">ថ្ងៃសងលុយ *</label>
+              <input type="date" id="payment-date" required>
+            </div>
+            <div class="form-group col-6">
+              <label for="payment-method" data-i18n="lbl_payment_method">វិធីសាស្ត្រទូទាត់ *</label>
+              <select id="payment-method" required>
+                <option value="Cash" data-i18n="method_cash">សាច់ប្រាក់ផ្ទាល់ (Cash)</option>
+                <option value="ABA" data-i18n="method_aba">ABA Bank</option>
+                <option value="Acleda" data-i18n="method_acleda">Acleda ToanChet</option>
+                <option value="Wing" data-i18n="method_wing">Wing</option>
+                <option value="Other" data-i18n="method_other">ផ្សេងៗ</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="payment-notes" data-i18n="lbl_payment_time">វេលាដែលបានសងលុយ</label>
+            <input type="text" id="payment-notes" placeholder="ឧ. ផ្ទេរតាម ABA ម៉ោង ២រសៀល"
+              data-i18n-placeholder="ph_payment_notes">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline btn-close-modal-btn" data-i18n="btn_cancel">បោះបង់</button>
+          <button type="submit" class="btn btn-success" data-i18n="btn_pay">សងប្រាក់</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: AGGREGATE PAYMENT (FIFO) -->
+  <div class="modal-overlay" id="modal-aggregate-payment">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 data-i18n="modal_aggregate_payment_title">កត់ត្រាសងប្រាក់សរុប (ទូទាត់បំណុលចាស់ៗមុន)</h2>
+        <button class="btn-close-modal" aria-label="Close Modal">&times;</button>
+      </div>
+      <form id="form-aggregate-payment">
+        <input type="hidden" id="aggregate-payment-debtor-id">
+        <div class="modal-body">
+          <div class="payment-info-box">
+            <p><strong data-i18n="lbl_debtor_name_short">អ្នកជំពាក់៖</strong> <span
+                id="aggregate-payment-info-name">...</span></p>
+            <p><strong>ជំពាក់ USD សរុប៖</strong> <span id="aggregate-payment-info-usd" class="text-danger">$0.00</span>
+            </p>
+            <p><strong>ជំពាក់ KHR សរុប៖</strong> <span id="aggregate-payment-info-khr" class="text-danger">0 ៛</span>
+            </p>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="aggregate-payment-currency" data-i18n="lbl_currency">រូបិយប័ណ្ណទូទាត់ *</label>
+              <select id="aggregate-payment-currency" required>
+                <option value="KHR" selected>KHR (៛)</option>
+                <option value="USD">USD ($)</option>
+              </select>
+            </div>
+            <div class="form-group col-6">
+              <label for="aggregate-payment-amount" data-i18n="lbl_payment_amount">ចំនួនទឹកប្រាក់សង *</label>
+              <input type="number" step="any" id="aggregate-payment-amount" required placeholder="0">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="aggregate-payment-date" data-i18n="lbl_payment_date">ថ្ងៃសងលុយ *</label>
+              <input type="date" id="aggregate-payment-date" required>
+            </div>
+            <div class="form-group col-6">
+              <label for="aggregate-payment-method" data-i18n="lbl_payment_method">វិធីសាស្ត្រទូទាត់ *</label>
+              <select id="aggregate-payment-method" required>
+                <option value="Cash" data-i18n="method_cash">សាច់ប្រាក់ផ្ទាល់ (Cash)</option>
+                <option value="ABA" data-i18n="method_aba">ABA Bank</option>
+                <option value="Acleda" data-i18n="method_acleda">Acleda ToanChet</option>
+                <option value="Wing" data-i18n="method_wing">Wing</option>
+                <option value="Other" data-i18n="method_other">ផ្សេងៗ</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="aggregate-payment-notes" data-i18n="lbl_notes">សម្គាល់</label>
+            <input type="text" id="aggregate-payment-notes" placeholder="ឧ. សងកាត់បំណុលរួម"
+              data-i18n-placeholder="ph_payment_notes">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline btn-close-modal-btn" data-i18n="btn_cancel">បោះបង់</button>
+          <button type="submit" class="btn btn-success" data-i18n="btn_pay">សងប្រាក់</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: DEBTOR DETAIL / STATEMENT -->
+  <div class="modal-overlay" id="modal-debtor-detail">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <h2 data-i18n="modal_debtor_detail_title">ព័ត៌មានលម្អិតអ្នកជំពាក់</h2>
+        <button class="btn-close-modal" aria-label="Close Modal">&times;</button>
+      </div>
+      <div class="modal-body scrollable-body">
+
+        <div class="debtor-detail-profile">
+          <div class="profile-avatar">
+            <span id="detail-profile-initial">S</span>
+          </div>
+          <div class="profile-info">
+            <h3 id="detail-profile-name">សុខ ម៉េង</h3>
+            <p id="detail-profile-phone">ទូរសព្ទ៖ 012 345 678</p>
+            <p id="detail-profile-address">អាសយដ្ឋាន៖ ភ្នំពេញ</p>
+          </div>
+          <div class="profile-balances">
+            <div class="balance-item">
+              <span class="lbl" data-i18n="bal_usd">ជំពាក់សរុប (USD)</span>
+              <span class="val text-danger" id="detail-balance-usd">$0.00</span>
+            </div>
+            <div class="balance-item">
+              <span class="lbl" data-i18n="bal_khr">ជំពាក់សរុប (KHR)</span>
+              <span class="val text-danger" id="detail-balance-khr">0 ៛</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-actions">
+          <button class="btn btn-primary btn-sm" id="detail-action-add-debt">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+              stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            <span data-i18n="btn_add_debt_short">ថែមការជំពាក់</span>
+          </button>
+
+          <button class="btn btn-success btn-sm" id="detail-action-pay-total">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+              stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+            </svg>
+            <span data-i18n="btn_pay_total">សងប្រាក់សរុប</span>
+          </button>
+
+          <button class="btn btn-outline btn-sm" id="detail-action-share">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+              stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186.002-.003c.001-.002.003-.006.005-.012a6.386 6.386 0 0 1 .13-.362m-1.13.003-.002-.003M7.217 10.907a2.25 2.25 0 1 1 0-2.186m0 2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
+            </svg>
+            <span data-i18n="btn_share_statement">ចម្លងរបាយការណ៍ផ្ញើតាម Telegram</span>
+          </button>
+
+          <button class="btn btn-outline btn-sm" id="detail-action-print">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+              stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.617 0-1.11-.476-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.656M3.89 12.182c.044-.223.167-.418.344-.555a1.113 1.113 0 0 1 1.405.12l1.012 1.012" />
+            </svg>
+            <span data-i18n="btn_print_statement">បោះពុម្ពរបាយការណ៍</span>
+          </button>
+
+          <button class="btn btn-outline btn-sm border-danger text-danger" id="detail-action-edit-profile">
+            <span data-i18n="btn_edit_debtor">កែសម្រួលព័ត៌មាន</span>
+          </button>
+        </div>
+
+        <div class="detail-tabs">
+          <button class="detail-tab active" data-tab="debts"
+            data-i18n="tab_active_debts">ការជំពាក់ដែលមិនទាន់ទូទាត់</button>
+          <button class="detail-tab" data-tab="history" data-i18n="tab_payment_history">ប្រវត្តិទូទាត់ប្រាក់</button>
+        </div>
+
+        <div class="detail-tab-content active" id="detail-tab-debts">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th data-i18n="col_description">មុខទំនិញ / ពណ៌នា</th>
+                  <th data-i18n="col_amount">ចំនួនទឹកប្រាក់</th>
+                  <th data-i18n="col_remaining">នៅខ្វះ</th>
+                  <th data-i18n="col_date">កាលបរិច្ឆេទ</th>
+                  <th data-i18n="col_due_date">ថ្ងៃកំណត់សង</th>
+                  <th data-i18n="col_status">ស្ថានភាព</th>
+                  <th data-i18n="col_actions" class="text-right">សកម្មភាព</th>
+                </tr>
+              </thead>
+              <tbody id="detail-debts-tbody">
+                <!-- Dynamically loaded -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="detail-tab-content" id="detail-tab-history">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th data-i18n="col_debt_item">សងលើការជំពាក់</th>
+                  <th data-i18n="col_amount_paid">ចំនួនប្រាក់សង</th>
+                  <th data-i18n="col_date_paid">ថ្ងៃសង</th>
+                  <th data-i18n="col_payment_method">វិធីសាស្ត្រ</th>
+                  <th data-i18n="col_notes">ពេលវេលា</th>
+                  <th class="text-right" data-i18n="col_actions">សកម្មភាព</th>
+                </tr>
+              </thead>
+              <tbody id="detail-payments-tbody">
+                <!-- Dynamically loaded -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Worker PWA notification toast -->
+  <div id="toast-notification" class="toast">
+    <span id="toast-message">...</span>
+  </div>
+
+  <!-- Print container -->
+  <div id="print-area"></div>
+
+  <!-- Login Overlay -->
+  <div id="login-overlay" class="login-overlay">
+    <div class="login-card">
+      <div class="login-logo">
+        <img src="logo.jpg" alt="Logo">
+      </div>
+      <h2 data-i18n="login_title">ចូលប្រើប្រាស់ប្រព័ន្ធ</h2>
+      <p class="login-subtitle" data-i18n="login_subtitle">ហាង សុខ ស៊ីណេត - ប្រព័ន្ធជំពាក់លុយ</p>
+      <form id="form-login">
+        <div class="form-group" style="display: none;">
+          <label for="login-username" data-i18n="lbl_username">ឈ្មោះអ្នកប្រើប្រាស់ (Username)</label>
+          <input type="text" id="login-username" placeholder="បញ្ចូល Username..." autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="login-password" data-i18n="lbl_password">លេខកូដសម្ងាត់ (Password)</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="login-password" placeholder="បញ្ចូល Password..." required
+              autocomplete="current-password">
+            <button type="button" onclick="togglePassword()"
+              style="position: absolute; right: 12px; background: none; border: none; padding: 0; cursor: pointer; color: var(--text-secondary); display: flex; align-items: center; justify-content: center; z-index: 10;">
+              <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.43 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="login-error-msg" class="login-error-msg" style="display: none;"></div>
+
+        <button type="submit" class="btn btn-primary btn-login-glow" style="margin-top: 24px; width: 100%;"
+          data-i18n="btn_login">ចូលប្រព័ន្ធ</button>
+      </form>
+
+      <div class="login-helper">
+        <span data-i18n="login_helper_text">2026@SOK<br>0976111120</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "ប្រព័ន្ធគ្រប់គ្រងការជំពាក់ប្រាក់ - Debt Management System",
+  "short_name": "ប្រព័ន្ធជំពាក់លុយ",
+  "description": "ប្រព័ន្ធគ្រប់គ្រងអ្នកជំពាក់លុយ ថ្លៃទិញអីវ៉ាន់ អាចប្រើប្រាស់បានទាំងកុំព្យូទ័រ និងទូរសព្ទដៃ",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
