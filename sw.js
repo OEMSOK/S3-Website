@@ -1,4 +1,4 @@
-const CACHE_NAME = "debt-manager-v1";
+const CACHE_NAME = "debt-manager-v2";
 const ASSETS_TO_CACHE = [
   "./",
   "index.html",
