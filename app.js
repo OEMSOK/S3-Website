@@ -1455,7 +1455,7 @@ function openEditDebtModal(debtId) {
     const itemData = debt.items && debt.items[idx];
     
     if (itemData) {
-      const isPredefined = ["ខោទឹកនោម", "ទឹកដោះគោ", "សាច់ជ្រូក", "ចំណីរជ្រូក", "ទឹកសុទ្ធ", "អង្គរ", "គ្រឿងក្រអូប", "សម្ភារៈក្មេង", "ចងការលុយ"].includes(itemData.name);
+      const isPredefined = ["ខោទឹកនោម", "ទឹកដោះគោ", "សាច់ជ្រូក", "ចំណីរជ្រូក", "ទឹកសុទ្ធ", "អង្ករ", "គ្រឿងក្រអូប", "សម្ភារៈក្មេង", "ចងការលុយ", "ទឹកផ្លែឈើ", "ស្រាបៀ", "បារី"].includes(itemData.name);
       if (isPredefined) {
         select.value = itemData.name;
         customText.style.display = "none";
